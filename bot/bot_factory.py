@@ -68,5 +68,9 @@ def create_bot(bot_type):
         from bot.minimax.minimax_bot import MinimaxBot
         return MinimaxBot()
 
+    elif bot_type == const.COZE:
+        from bot.bytedance.coze_bot import CozeBot
+        return CozeBot()
+
 
     raise RuntimeError
