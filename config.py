@@ -32,7 +32,7 @@ available_setting = {
     "group_chat_reply_suffix": "",  # 群聊时自动回复的后缀，\n 可以换行
     "group_chat_keyword": [],  # 群聊时包含该关键词则会触发机器人回复
     "group_at_off": False,  # 是否关闭群聊时@bot的触发
-    "group_name_white_list": ["ChatGPT测试群", "ChatGPT测试群2"],  # 开启自动回复的群名称列表
+    "group_name_white_list": ["bot测试群", "bot测试群2"],  # 开启自动回复的群名称列表
     "group_name_keyword_white_list": [],  # 开启自动回复的群名称关键词列表
     "group_chat_in_one_session": ["ChatGPT测试群"],  # 支持会话上下文共享的群名称
     "nick_name_black_list": [],  # 用户昵称黑名单
@@ -180,6 +180,13 @@ available_setting = {
     "Minimax_group_id": "",
     "Minimax_base_url": "",
     "web_port": 9899,
+    #coze配置
+    "use_coze": True,
+    "coze_model":"coze",
+    "coze_api_base":"https://api.coze.cn/open_ai/v2",
+    "coze_api_key":"pat_90iwpXDOTKacnYPyCIVpkmymwgn86ONG596WpHoWbxaPmIiMraBH3xCSK4D3RjLR",
+    "coze_bot_id":"7479784224736854070",
+
 }
 
 
