@@ -17,7 +17,7 @@ available_setting = {
     "open_ai_api_base": "https://api.openai.com/v1",
     "proxy": "",  # openai使用的代理
     # chatgpt模型， 当use_azure_chatgpt为true时，其名称为Azure上model deployment名称
-    "model": "gpt-3.5-turbo",  # 可选择: gpt-4o, pt-4o-mini, gpt-4-turbo, claude-3-sonnet, wenxin, moonshot, qwen-turbo, xunfei, glm-4, minimax, gemini等模型，全部可选模型详见common/const.py文件
+    "model": "coze",  # 可选择: gpt-4o, pt-4o-mini, gpt-4-turbo, claude-3-sonnet, wenxin, moonshot, qwen-turbo, xunfei, glm-4, minimax, gemini等模型，全部可选模型详见common/const.py文件
     "bot_type": "",  # 可选配置，使用兼容openai格式的三方服务时候，需填"chatGPT"。bot具体名称详见common/const.py文件列出的bot_type，如不填根据model名称判断，
     "use_azure_chatgpt": False,  # 是否使用azure的chatgpt
     "azure_deployment_id": "",  # azure 模型部署名称
@@ -46,7 +46,7 @@ available_setting = {
     "azure_openai_dalle_api_base": "", # [可选] azure openai 用于回复图片的资源 endpoint，默认使用 open_ai_api_base
     "azure_openai_dalle_api_key": "", # [可选] azure openai 用于回复图片的资源 key，默认使用 open_ai_api_key
     "azure_openai_dalle_deployment_id":"", # [可选] azure openai 用于回复图片的资源 deployment id，默认使用 text_to_image
-    "image_proxy": True,  # 是否需要图片代理，国内访问LinkAI时需要
+    "image_proxy": False,  # 是否需要图片代理，国内访问LinkAI时需要
     "image_create_prefix": ["画", "看", "找"],  # 开启图片回复的前缀
     "concurrency_in_session": 1,  # 同一会话最多有多少条消息在处理中，大于1可能乱序
     "image_create_size": "256x256",  # 图片大小,可选有 256x256, 512x512, 1024x1024 (dall-e-3默认为1024x1024)
@@ -144,10 +144,10 @@ available_setting = {
     "wechatcomapp_aes_key": "",  # 企业微信app的aes_key
     # 飞书配置
     "feishu_port": 80,  # 飞书bot监听端口
-    "feishu_app_id": "",  # 飞书机器人应用APP Id
-    "feishu_app_secret": "",  # 飞书机器人APP secret
-    "feishu_token": "",  # 飞书 verification token
-    "feishu_bot_name": "",  # 飞书机器人的名字
+    "feishu_app_id": "cli_a744097e01911013",  # 飞书机器人应用APP Id
+    "feishu_app_secret": "ANzbygbRY6POvE8Wda5dhdfcz3lrWW8I",  # 飞书机器人APP secret
+    "feishu_token": "PtDXdHtvFHb21txTU2t2sHbVOF3EXqAW",  # 飞书 verification token
+    "feishu_bot_name": "bot",  # 飞书机器人的名字
     # 钉钉配置
     "dingtalk_client_id": "",  # 钉钉机器人Client ID 
     "dingtalk_client_secret": "",  # 钉钉机器人Client Secret
@@ -186,7 +186,6 @@ available_setting = {
     "coze_api_base":"https://api.coze.cn/open_ai/v2",
     "coze_api_key":"pat_90iwpXDOTKacnYPyCIVpkmymwgn86ONG596WpHoWbxaPmIiMraBH3xCSK4D3RjLR",
     "coze_bot_id":"7479784224736854070",
-
 }
 
 

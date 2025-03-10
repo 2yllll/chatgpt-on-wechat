@@ -1,6 +1,6 @@
 {
-  "channel_type": "wx",
-  "model": "",
+  "channel_type": "dingtalk",
+  "model": "coze",
   "open_ai_api_key": "YOUR API KEY",
   "claude_api_key": "YOUR API KEY",
   "text_to_image": "dall-e-2",
@@ -17,8 +17,8 @@
     "@bot"
   ],
   "group_name_white_list": [
-    "ChatGPT测试群",
-    "ChatGPT测试群2"
+    "bot测试群",
+    "bot测试群2"
   ],
   "image_create_prefix": [
     "画"
@@ -33,5 +33,10 @@
   "subscribe_msg": "感谢您的关注！\n这里是AI智能助手，可以自由对话。\n支持语音对话。\n支持图片输入。\n支持图片输出，画字开头的消息将按要求创作图片。\n支持tool、角色扮演和文字冒险等丰富的插件。\n输入{trigger_prefix}#help 查看详细指令。",
   "use_linkai": false,
   "linkai_api_key": "",
-  "linkai_app_code": ""
+  "linkai_app_code": "",
+  "use_coze": true,
+  "coze_model": "coze",
+  "coze_api_base": "https://api.coze.cn/open_ai/v2",
+  "coze_api_key": "pat_90iwpXDOTKacnYPyCIVpkmymwgn86ONG596WpHoWbxaPmIiMraBH3xCSK4D3RjLR",
+  "coze_bot_id": "7479784224736854070"
 }
