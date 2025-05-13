@@ -5,11 +5,10 @@ services:
       dockerfile: Dockerfile.latest
     container_name: chatbot
     restart: always
-    volumes:
-      - ./config.json:/app/config.json
-      - ./plugins/config.json:/app/plugins/config.json
+    
     security_opt:
       - seccomp:unconfined
+
     environment:
       TZ: 'Asia/Shanghai'
       OPEN_AI_API_KEY: 'YOUR API KEY'
@@ -28,4 +27,6 @@ services:
       USE_LINKAI: 'False'
       LINKAI_API_KEY: ''
       LINKAI_APP_CODE: ''
-   
+
+    volumes:
+      - ./config.json:/app/config.json
