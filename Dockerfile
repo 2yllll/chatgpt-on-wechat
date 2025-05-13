@@ -32,4 +32,4 @@ COPY . /app/
 ENV PYTHONUNBUFFERED=1
 
 # 启动命令
-CMD ["sh", "-c", "if [ -f /app/config.json.host ]; then cp /app/config.json.host /app/config.json; fi && python app.py"]
+CMD ["python","app.py"]
