@@ -32,7 +32,7 @@ class Workflow:
         if context is None:
             return Reply(ReplyType.TEXT, "执行失败")
 
-        workflow = self.coze_client.workflows.runs.create(workflow_id=self.current_flow_id, parameters={keyword: "AI OR 机器人", count: 4}, bot_id=self.bot_id)
+        workflow = self.coze_client.workflows.runs.create(workflow_id=self.current_flow_id, parameters={'keyword': "AI OR 机器人", 'count': 4}, bot_id=self.bot_id)
 
         if isinstance(workflow.data, str):
             try:
