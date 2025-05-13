@@ -1,16 +1,18 @@
 services:
-  chatbot:
+  #chatgpt-on-wechat:
+    #image: zhayujie/chatgpt-on-wechat
+    #container_name: chatgpt-on-wechat
+    #security_opt:
+    # - seccomp:unconfined
+  chatgpt-on-wechat:
     build:
       context: .
-      dockerfile: Dockerfile.latest
-    container_name: chatbot
+      dockerfile: Dockerfile
+    container_name: chatgpt-on-wechat
     restart: always
-    
-    security_opt:
-      - seccomp:unconfined
-
     environment:
-      TZ: 'Asia/Shanghai'
+      CHANNEL_TYPE: 'dingtalk'
+      BOT_TYPE: 'bot_type'
       OPEN_AI_API_KEY: 'YOUR API KEY'
       MODEL: ''
       PROXY: ''
@@ -21,12 +23,21 @@ services:
       IMAGE_CREATE_PREFIX: '["画"]'
       CONVERSATION_MAX_TOKENS: 2500
       SPEECH_RECOGNITION: 'False'
-      CHARACTER_DESC: '你是ChatGPT, 一个由OpenAI训练的大型语言模型, 你旨在回答并解决人们的任何问题，并且可以使用多种语言与人交流。'
+      CHARACTER_DESC: '你是基于大语言模型的AI智能助手，旨在回答并解决人们的任何问题，并且可以使用多种语言与人交流。'
       EXPIRES_IN_SECONDS: 3600
       USE_GLOBAL_PLUGIN_CONFIG: 'True'
       USE_LINKAI: 'False'
       LINKAI_API_KEY: ''
       LINKAI_APP_CODE: ''
-
+      COZE_API_BASE: 'https://api.coze.cn'
+      COZE_API_KEY: 'pat_yVV5PPA0vTXph0zG394zVO8LKChVnhY0xCOBl0eIpSisCEAAlHGiyRKqvzIASTxf'
+      COZE_BOT_ID: '7479784224736854070'
+      COZE_SPACE_ID: '7479689847411114020'
+      COZE_VOICE_ID: ''
+      DINGTALK_CLIENT_ID: 'dingbnyxoui7zfyx1sif'
+      DINGTALK_CLIENT_SECRET: 'twhrkiQYcN44HMrKPt7q3DCB04BDMtiUCzU_MMqJNBnriuSr7heqZkXMQHy3yZ99'
+      DINGTALK_CARD_ENABLED: 'False'
+      WORKFLOWS: '{"realtime_info":["7484879219102695434","每日行业热点收集中，稍后推送，请稍等..."]}'
+      DEFAULT_KEYWORD: 'AI OR 模型'
     volumes:
       - ./config.json:/app/config.json
