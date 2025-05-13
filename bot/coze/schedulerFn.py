@@ -31,7 +31,7 @@ def _default_output(workflow, context, pending_text):
     if pending_text:
         context.kwargs.get("channel").send(Reply(ReplyType.TEXT, pending_text), context)
 
-    work_res = workflow.coze_client.workflows.runs.create(workflow_id=workflow.current_flow_id, parameters={}, bot_id=workflow.bot_id)
+    work_res = workflow.coze_client.workflows.runs.create(workflow_id=workflow.current_flow_id, parameters={keyword: "AI OR 机器人", count: 4}, bot_id=workflow.bot_id)
 
     if isinstance(work_res.data, str):
         try:
