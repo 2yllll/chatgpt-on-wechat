@@ -10,9 +10,10 @@ import datetime
 
 
 class Workflow:
-    def __init__(self, coze, botId):
+    def __init__(self, coze, appId, botId):
         self.coze_client = coze
         self.bot_id = botId
+        self.app_id = appId
         self.workflows: Dict[str, str] = conf().get("workflows")
         self._base_url = conf().get("coze_api_base")
         self.current_flow_id = None
@@ -31,19 +32,27 @@ class Workflow:
     def _call_workflow(self, context):
         if context is None:
             return Reply(ReplyType.TEXT, "执行失败")
+        
+        try:
+            print(f"执行workflow{self.current_flow_id}")
+            workflow = self.coze_client.workflows.runs.create(
+                workflow_id=self.current_flow_id,
+                parameters={"keyword": "AI OR 机器人", "count": 4},
+               # bot_id=self.bot_id,
+               # app_id=self.app_id,
+            )
 
-        workflow = self.coze_client.workflows.runs.create(workflow_id=self.current_flow_id, parameters={'keyword': "AI OR 机器人", 'count': 4}, bot_id=self.bot_id)
-
-        if isinstance(workflow.data, str):
-            try:
+            if isinstance(workflow.data, str):
                 obj = json.loads(workflow.data)
                 output = obj.get("output")
+                
                 if output:
                     return Reply(ReplyType.TEXT, output)
-            except Exception as e:
-                return Reply(ReplyType.TEXT, "工作流执行失败")
-
-        return Reply(ReplyType.TEXT, "工作流执行结果转换失败")
+                return Reply(ReplyType.TEXT, "工作流执行结果转换失败")
+            
+        except Exception as e:
+            print(f"工作流执行失败{e}")
+            return Reply(ReplyType.TEXT, "工作流执行失败")
 
     def apply(self, match: str, context):
         flow_id, pending_text = self._get_workflow(match)

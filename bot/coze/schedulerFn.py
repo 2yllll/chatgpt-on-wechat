@@ -4,10 +4,15 @@ from config import conf
 
 
 def get_info(workflow, context):
-    work_res = workflow.coze_client.workflows.runs.create(workflow_id=workflow.current_flow_id, parameters={"keyword": "AI OR 机器人", "count": 4}, bot_id=workflow.bot_id)
+    try:
+        work_res = workflow.coze_client.workflows.runs.create(
+            workflow_id=workflow.current_flow_id,
+            parameters={"keyword": "AI OR 机器人", "count": 4},
+           # bot_id=workflow.bot_id,
+           # app_id=workflow.app_id,
+        )
 
-    if isinstance(work_res.data, str):
-        try:
+        if isinstance(work_res.data, str):
             obj = json.loads(work_res.data)
 
             news = obj.get("news")
@@ -19,9 +24,9 @@ def get_info(workflow, context):
                 context.kwargs.get("channel").send(Reply(ReplyType.TEXT, output), context)
 
             return True
-        except Exception as e:
-            context.kwargs.get("channel").send(Reply(ReplyType.TEXT, "工作流执行失败"), context)
-            return False
+    except Exception as e:
+        context.kwargs.get("channel").send(Reply(ReplyType.TEXT, "工作流执行失败"), context)
+        return False
 
     context.kwargs.get("channel").send(Reply(ReplyType.TEXT, "工作流执行结果转换失败"), context)
     return False
@@ -30,20 +35,25 @@ def get_info(workflow, context):
 def _default_output(workflow, context, pending_text):
     if pending_text:
         context.kwargs.get("channel").send(Reply(ReplyType.TEXT, pending_text), context)
+    try:
+        work_res = workflow.coze_client.workflows.runs.create(
+            workflow_id=workflow.current_flow_id,
+            parameters={"keyword": "AI OR 机器人", "count": 4},
+           # bot_id=workflow.bot_id,
+           # app_id=workflow.app_id,
+        )
 
-    work_res = workflow.coze_client.workflows.runs.create(workflow_id=workflow.current_flow_id, parameters={"keyword": "AI OR 机器人", "count": 4}, bot_id=workflow.bot_id)
+        if isinstance(work_res.data, str):
 
-    if isinstance(work_res.data, str):
-        try:
             obj = json.loads(work_res.data)
             output = obj.get("output")
             if output:
                 context.kwargs.get("channel").send(Reply(ReplyType.TEXT, output), context)
 
             return True
-        except Exception as e:
-            context.kwargs.get("channel").send(Reply(ReplyType.TEXT, "工作流执行失败"), context)
-            return False
+    except Exception as e:
+        context.kwargs.get("channel").send(Reply(ReplyType.TEXT, "工作流执行失败"), context)
+        return False
 
     context.kwargs.get("channel").send(Reply(ReplyType.TEXT, "工作流执行结果转换失败"), context)
     return False

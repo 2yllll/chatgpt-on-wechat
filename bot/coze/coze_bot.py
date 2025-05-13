@@ -20,12 +20,13 @@ class CozeBot(Bot):
         # 从配置文件获取 token 和 bot_id
         self.token = conf().get("coze_api_key")
         self.bot_id = conf().get("coze_bot_id")
+        self.app_id = conf().get("coze_space_id")
         # 初始化Coze客户端
         self.coze_client = Coze(auth=TokenAuth(token=self.token), base_url=conf().get("coze_api_base"))
         # 初始化会话管理组件
         self.session_manager = UserSessionManager()
         self.conv_manager = ConversationManager(coze_client=self.coze_client, session_manager=self.session_manager)
-        self.workflows = Workflow(self.coze_client,self.bot_id)
+        self.workflows = Workflow(self.coze_client, self.app_id, self.bot_id)
 
     def reply(self, query, context: Context = None) -> Reply:
         try:
