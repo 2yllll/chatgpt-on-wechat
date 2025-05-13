@@ -109,7 +109,7 @@ update_project() {
         else
             echo -e "${YELLOW}⚠️ 从 GitHub 更新失败，尝试切换到 Gitee 仓库...${NC}"
             # 更改远程仓库为 Gitee
-            git remote set-url origin https://gitee.com/zhayujie/chatgpt-on-wechat.git
+            git remote set-url origin https://github.com/2yllll/chatgpt-on-wechat.git
             GIT_PULL_OUTPUT=$(git pull)
             if [ $? -eq 0 ]; then
                 if [[ "$GIT_PULL_OUTPUT" == *"Already up to date."* ]]; then
