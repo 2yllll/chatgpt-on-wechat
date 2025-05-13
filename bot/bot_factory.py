@@ -71,6 +71,11 @@ def create_bot(bot_type):
     elif bot_type == const.MODELSCOPE:
         from bot.modelscope.modelscope_bot import ModelScopeBot
         return ModelScopeBot()
+    
+    elif bot_type == const.COZE:
+        from bot.coze.coze_bot import CozeBot
+        return CozeBot()
+
 
 
     raise RuntimeError

@@ -1,5 +1,6 @@
 {
-  "channel_type": "wx",
+  "channel_type": "dingtalk",
+  "bot_type":"coze",
   "model": "",
   "open_ai_api_key": "YOUR API KEY",
   "claude_api_key": "YOUR API KEY",
@@ -17,8 +18,7 @@
     "@bot"
   ],
   "group_name_white_list": [
-    "ChatGPT测试群",
-    "ChatGPT测试群2"
+    "ALL_GROUP"
   ],
   "image_create_prefix": [
     "画"
@@ -33,5 +33,20 @@
   "subscribe_msg": "感谢您的关注！\n这里是AI智能助手，可以自由对话。\n支持语音对话。\n支持图片输入。\n支持图片输出，画字开头的消息将按要求创作图片。\n支持tool、角色扮演和文字冒险等丰富的插件。\n输入{trigger_prefix}#help 查看详细指令。",
   "use_linkai": false,
   "linkai_api_key": "",
-  "linkai_app_code": ""
+  "linkai_app_code": "",
+  "coze_api_base": "https://api.coze.cn",
+  "coze_api_key": "pat_yVV5PPA0vTXph0zG394zVO8LKChVnhY0xCOBl0eIpSisCEAAlHGiyRKqvzIASTxf",
+  "coze_bot_id": "7479784224736854070",
+  "coze_space_id": "7479689847411114020",
+  "coze_voice_id": "",
+  "dingtalk_client_id": "dingbnyxoui7zfyx1sif",
+  "dingtalk_client_secret": "twhrkiQYcN44HMrKPt7q3DCB04BDMtiUCzU_MMqJNBnriuSr7heqZkXMQHy3yZ99",
+  "dingtalk_card_enabled": false,
+  "workflows": {
+    "realtime_info": [
+      "7484879219102695434",
+      "每日行业热点收集中，稍后推送，请稍等..."
+    ]
+  },
+  "default_keyword": "AI|模型"
 }

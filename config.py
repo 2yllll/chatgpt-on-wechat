@@ -183,6 +183,19 @@ available_setting = {
     "Minimax_group_id": "",
     "Minimax_base_url": "",
     "web_port": 9899,
+    # Coze配置
+    "coze_api_base": "https://api.coze.cn",
+    "coze_api_key": "",
+    "coze_bot_id": "",
+    "coze_space_id": "",
+    "coze_voice_id": "",
+    "workflows": {
+    "realtime_info": [
+      "7484879219102695434",
+      "每日行业热点收集中，稍后推送，请稍等..."
+    ]
+    },
+    "default_keyword": "AI|模型"
 }
 
 
