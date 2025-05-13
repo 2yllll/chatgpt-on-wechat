@@ -25,7 +25,7 @@ class CozeBot(Bot):
         # 初始化会话管理组件
         self.session_manager = UserSessionManager()
         self.conv_manager = ConversationManager(coze_client=self.coze_client, session_manager=self.session_manager)
-        self.workflows = Workflow(self.coze_client)
+        self.workflows = Workflow(self.coze_client,self.bot_id)
 
     def reply(self, query, context: Context = None) -> Reply:
         try:

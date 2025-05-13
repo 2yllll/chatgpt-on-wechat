@@ -10,8 +10,9 @@ import datetime
 
 
 class Workflow:
-    def __init__(self, coze):
+    def __init__(self, coze, botId):
         self.coze_client = coze
+        self.bot_id = botId
         self.workflows: Dict[str, str] = conf().get("workflows")
         self._base_url = conf().get("coze_api_base")
         self.current_flow_id = None
@@ -30,11 +31,8 @@ class Workflow:
     def _call_workflow(self, context):
         if context is None:
             return Reply(ReplyType.TEXT, "执行失败")
-        
 
-        workflow = self.coze_client.workflows.runs.create(
-            workflow_id=self.current_flow_id,
-        )
+        workflow = self.coze_client.workflows.runs.create(workflow_id=self.current_flow_id, parameters={}, bot_id=self.bot_id)
 
         if isinstance(workflow.data, str):
             try:
