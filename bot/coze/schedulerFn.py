@@ -7,8 +7,8 @@ def get_info(workflow, context):
     try:
         work_res = workflow.coze_client.workflows.runs.create(
             workflow_id=workflow.current_flow_id,
-            parameters={"keyword": "AI OR 大模型", "count": 4},
-           # bot_id=workflow.bot_id,
+            parameters={"keyword": "AI|模型", "count": 4},
+            bot_id=workflow.bot_id,
            # app_id=workflow.app_id,
         )
 
@@ -38,8 +38,8 @@ def _default_output(workflow, context, pending_text):
     try:
         work_res = workflow.coze_client.workflows.runs.create(
             workflow_id=workflow.current_flow_id,
-            parameters={"keyword": "AI OR 大模型", "count": 4},
-           # bot_id=workflow.bot_id,
+            parameters={"keyword": "AI|模型", "count": 4},
+            bot_id=workflow.bot_id,
            # app_id=workflow.app_id,
         )
 

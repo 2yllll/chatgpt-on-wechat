@@ -37,8 +37,8 @@ class Workflow:
             print(f"执行workflow{self.current_flow_id}")
             workflow = self.coze_client.workflows.runs.create(
                 workflow_id=self.current_flow_id,
-                parameters={"keyword": "AI OR 大模型", "count": 4},
-               # bot_id=self.bot_id,
+                parameters={"keyword": "AI|模型", "count": 4},
+                bot_id=self.bot_id,
                # app_id=self.app_id,
             )
 
