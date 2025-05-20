@@ -38,6 +38,7 @@ google-generativeai
 
 # dingtalk
 dingtalk_stream
+alibabacloud_dingtalk
 
 # zhipuai
 zhipuai>=2.0.1

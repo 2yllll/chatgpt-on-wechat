@@ -40,6 +40,7 @@
   "coze_space_id": "7479689847411114020",
   "coze_voice_id": "",
   "dingtalk_client_id": "dingbnyxoui7zfyx1sif",
+  "dingtalk_robot_code": "dingbnyxoui7zfyx1sif",
   "dingtalk_client_secret": "twhrkiQYcN44HMrKPt7q3DCB04BDMtiUCzU_MMqJNBnriuSr7heqZkXMQHy3yZ99",
   "dingtalk_card_enabled": false,
   "workflows": {
