@@ -65,10 +65,11 @@ class Workflow:
     def timer_trigger(self, match: str, context, **kwargs):
         flow_id, pending_text = self._get_workflow(match)
         if flow_id != "":
-            if self.scheduler.get_job(match):
+            job_id = f'{match}_{context.kwargs["msg"].from_user_id}'
+            if self.scheduler.get_job(job_id):
                 # context.kwargs.get("channel").send(Reply(ReplyType.TEXT, f"{fn_name}已经开启了，无需再开启。"), context)
-                self.scheduler.pause_job(match)
-                self.scheduler.remove_job(match)
+                self.scheduler.pause_job(job_id)
+                self.scheduler.remove_job(job_id)
                 return Reply(ReplyType.TEXT, f"关闭{match}。")
             fn = None
             try:
@@ -79,7 +80,7 @@ class Workflow:
             if not fn:
                 return Reply(ReplyType.TEXT, f"{match}启用失败")
 
-            self.scheduler.add_job(fn, "cron", **kwargs, id=f"{match}", args=[self, context, pending_text], timezone="Asia/Shanghai")
+            self.scheduler.add_job(fn, "cron", **kwargs, id=f"{job_id}", args=[self, context, pending_text], timezone="Asia/Shanghai")
 
             return Reply(ReplyType.TEXT, f"{match}已启用 {json.dumps(kwargs)}")
 
