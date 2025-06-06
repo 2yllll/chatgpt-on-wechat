@@ -2,7 +2,7 @@ from bot.bot import Bot
 from bridge.context import ContextType, Context
 from bridge.reply import Reply, ReplyType
 from common.log import logger
-from config import conf,load_config
+from config import conf, load_config
 from cozepy import Coze, TokenAuth, MessageContentType, MessageType
 import json
 
@@ -84,10 +84,6 @@ class CozeBot(Bot):
                 return None, Reply(ReplyType.TEXT, "用户ID获取失败")
             new_id = self.conv_manager.create_conversation(user_id)
             return None, Reply(ReplyType.TEXT, "记忆已清除") if new_id else (None, Reply(ReplyType.TEXT, "清除失败"))
-        
-        if context.type == ContextType.TEXT and "#更新配置" in context.content:
-            load_config()
-            return None, Reply(ReplyType.TEXT, "配置更新成功")
 
         # 调用workflow
         try:

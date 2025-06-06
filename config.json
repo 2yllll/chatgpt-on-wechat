@@ -9,11 +9,8 @@
   "text_to_voice": "openai",
   "proxy": "",
   "hot_reload": false,
-  "single_chat_prefix": [
-    "bot",
-    "@bot"
-  ],
-  "single_chat_reply_prefix": "[bot] ",
+  "single_chat_prefix": [],
+  "single_chat_reply_prefix": "",
   "group_chat_prefix": [
     "@bot"
   ],
