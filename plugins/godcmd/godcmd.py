@@ -336,6 +336,7 @@ class Godcmd(Plugin):
                             ok, result = True, "服务已恢复"
                         elif cmd == "reconf":
                             load_config()
+                            Bridge().reset_bot()
                             ok, result = True, "配置已重载"
                         elif cmd == "resetall":
                             if bottype in [const.OPEN_AI, const.CHATGPT, const.CHATGPTONAZURE, const.LINKAI,
