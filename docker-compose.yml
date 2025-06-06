@@ -1,9 +1,4 @@
 services:
-  #chatgpt-on-wechat:
-    #image: zhayujie/chatgpt-on-wechat
-    #container_name: chatgpt-on-wechat
-    #security_opt:
-    # - seccomp:unconfined
   chatgpt-on-wechat:
     build:
       context: .
@@ -12,4 +7,4 @@ services:
     restart: always
    
     volumes:
-      - ./config.json:/app/config.json
+      - ./config.json:/app/a/config.json
